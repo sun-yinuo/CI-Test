@@ -16,10 +16,10 @@ describe('用户模块契约', () => {
             .addInteraction()
             .given('用户 1 存在')
             .uponReceiving('请求 ID 为 1 的用户信息')
-            .withRequest('GET', '/api/users/2')
+            .withRequest('GET', '/api/users/3')
             .willRespondWith(200, (builder) => {
                 builder.jsonBody({
-                    id: 2,
+                    id: 3,
                     username: 'las',
                     email: 'test@example.com'
                 })
