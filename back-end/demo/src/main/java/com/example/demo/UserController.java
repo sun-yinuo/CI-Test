@@ -17,4 +17,17 @@ public class UserController {
     public String getUser(@PathVariable String id) {
         return id;
     }
+
+    @GetMapping("/test-bug")
+    public String triggerBug() {
+        String str = null;
+
+        // SonarQube 扫描到这里时会报 Critical Bug：
+        // "A 'NullPointerException' could be thrown; 'str' is nullable here."
+        if (str.equals("fail-me")) {
+            return "This will never run";
+        }
+
+        return "Bug is live";
+    }
 }
