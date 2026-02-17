@@ -25,7 +25,7 @@ describe('用户模块契约', () => {
                 })
             })
             .executeTest(async (mockServer) => {
-                const res = await fetch(`${mockServer.url}/api/users/1`)
+                const res = await fetch(`${mockServer.url}/api/users/3`)
                 expect(res.status).toBe(200)
                 const data = await res.json()
                 expect(data.username).toBe('las')
