@@ -6,11 +6,10 @@ export default defineConfig({
         globals: true,
         environment: 'happy-dom',
         coverage: {
-            provider: 'v8',
-            reporter: ['text', 'lcov'], // 必须包含 lcov 格式
-            reportsDirectory: './coverage', // 报告生成的位置
-            // 建议排除掉不需要统计覆盖率的目录
-            exclude: ['node_modules/**', '.nuxt/**', 'dist/**', 'tests/**']
-        }
+            provider: 'v8', // 或者 'istanbul'
+            reporter: ['text', 'lcov', 'clover'], // 必须包含 lcov
+            reportsDirectory: './coverage',
+            exclude: ['node_modules/**', '.nuxt/**', 'dist/**', '**/*.d.ts'],
+        },
     },
 })
