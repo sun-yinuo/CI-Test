@@ -1,6 +1,6 @@
 spring:
   application:
-    name: demo2
+    name: demo1
 springdoc:
   swagger-ui:
     # ????????????? /swagger-ui.html
@@ -10,6 +10,5 @@ springdoc:
   api-docs:
     # ????????
     path: /v3/api-docs
-
 server:
   port: 8080
