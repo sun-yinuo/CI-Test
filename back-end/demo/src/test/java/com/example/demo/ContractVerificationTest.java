@@ -22,17 +22,19 @@ import static org.mockito.Mockito.when;
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class ContractVerificationTest {
 
+
     @LocalServerPort
     private int port;
 
     @MockitoBean
     private UserService userService;
 
-    // 【改动 3】在测试开始前，明确告诉 Pact 去连接哪个端口
+
     @BeforeEach
     void setup(PactVerificationContext context) {
         context.setTarget(new HttpTestTarget("localhost", port));
     }
+
 
     @TestTemplate
     @ExtendWith(PactVerificationInvocationContextProvider.class)
@@ -40,9 +42,12 @@ public class ContractVerificationTest {
         context.verifyInteraction();
     }
 
+
     @State("用户 1 存在")
     public void toUserExistsState() {
-        User mockUser = new User(1L, "las", "test@example.com");
+        User mockUser = new User(3L, "las", "test@example.com");
         when(userService.getUserById(1L)).thenReturn(mockUser);
     }
+
+
 }
