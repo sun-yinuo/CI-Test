@@ -46,7 +46,7 @@ public class ContractVerificationTest {
     @State("用户 1 存在")
     public void toUserExistsState() {
         User mockUser = new User(3L, "las", "test@example.com");
-        when(userService.getUserById(1L)).thenReturn(mockUser);
+        when(userService.getUserById(3L)).thenReturn(mockUser);
     }
 
 
