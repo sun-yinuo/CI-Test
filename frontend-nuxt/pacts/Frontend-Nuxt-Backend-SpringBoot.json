@@ -13,13 +13,13 @@
       ],
       "request": {
         "method": "GET",
-        "path": "/api/users/1"
+        "path": "/api/users/3"
       },
       "response": {
         "body": {
           "content": {
             "email": "test@example.com",
-            "id": 1,
+            "id": 3,
             "username": "las"
           },
           "contentType": "application/json",

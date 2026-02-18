@@ -3,12 +3,14 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "build": "nuxt build",
-    "dev": "nuxt dev",
-    "generate": "nuxt generate",
-    "preview": "nuxt preview",
-    "postinstall": "nuxt prepare",
-    "test:pact": "vitest run tests/pact"
+    "build": "yarn nuxt build",
+    "dev": "yarn nuxt dev",
+    "generate": "yarn nuxt generate",
+    "preview": "yarn nuxt preview",
+    "postinstall": "yarn nuxt prepare",
+    "test:pact": "yarn vitest run tests/pact",
+    "test": "yarn vitest run",
+    "sonar": "sonar-scanner"
   },
   "dependencies": {
     "nuxt": "^4.3.1",
@@ -20,6 +22,7 @@
     "@types/node": "^25.2.3",
     "@vitest/ui": "^4.0.18",
     "happy-dom": "^20.6.1",
+    "sonarqube-scanner": "^4.3.4",
     "vitest": "^4.0.18"
   }
 }
