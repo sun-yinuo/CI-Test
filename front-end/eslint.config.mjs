@@ -17,6 +17,9 @@ export default withNuxt(
     vue: true, // To enable accessibility in Vue, use the option {a11y: true}
     typescript: {
       tsconfigPath: 'tsconfig.json',
+      parserOptions: {
+        allowDefaultProject: ['./*.js', './*.ts'],
+      },
     },
     rules: {
       'perfectionist/sort-imports': ['warn', { type: 'alphabetical' }],
