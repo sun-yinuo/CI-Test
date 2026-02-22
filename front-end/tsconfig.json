@@ -13,7 +13,11 @@
       "path": "./.nuxt/tsconfig.node.json"
     },
     {
-      "path": "tsconfig.vitest.json"
+      "path": "tsconfig.vitest.json",
+      "include": [
+        "vitest.config.ts",
+        "**/*"
+      ]
     }
   ],
   // https://nuxt.com/docs/guide/concepts/typescript

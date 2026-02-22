@@ -16,16 +16,11 @@ export default withNuxt(
     ],
 
     formatters: true,
-    vue: true, // To enable accessibility in Vue, use the option {a11y: true}
+    vue: true,
 
-    // 👉 关键改动：将解析器配置直接注入到底层的 typescript 对象中
     typescript: {
       tsconfigPath: 'tsconfig.json',
-      parserOptions: {
-        projectService: {
-          allowDefaultProject: ['*.ts', '*.js'],
-        },
-      },
+      // 🚨 删掉了引发冲突的 parserOptions 和 allowDefaultProject，不再走弯路！
     },
 
     rules: {
@@ -38,6 +33,13 @@ export default withNuxt(
     name: 'laslog/custom',
     rules: {
       'nuxt/prefer-import-meta': 'error',
+    },
+  },
+  // 👉 针对测试配置文件，关闭过于严格的布尔值类型校验
+  {
+    files: ['vitest.config.ts'],
+    rules: {
+      'ts/strict-boolean-expressions': 'off',
     },
   },
 )
