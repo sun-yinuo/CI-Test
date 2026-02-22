@@ -14,12 +14,9 @@ export default withNuxt(
       'dist/**',
     ],
     formatters: true,
-    vue: true, // To enable accessibility in Vue, use the option {a11y: true}
+    vue: true,
     typescript: {
       tsconfigPath: 'tsconfig.json',
-      parserOptions: {
-        allowDefaultProject: ['./*.js', './*.ts'],
-      },
     },
     rules: {
       'perfectionist/sort-imports': ['warn', { type: 'alphabetical' }],
@@ -31,6 +28,18 @@ export default withNuxt(
     name: 'laslog/custom',
     rules: {
       'nuxt/prefer-import-meta': 'error',
+    },
+  },
+  {
+    name: 'laslog/config-files',
+    files: ['vitest.config.ts'],
+    languageOptions: {
+      parserOptions: {
+        projectService: {
+          // 明确告诉 TypeScript 解析器：允许检查根目录下的 .ts 文件
+          allowDefaultProject: ['*.ts', '*.js'],
+        },
+      },
     },
   },
 )
