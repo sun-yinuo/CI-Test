@@ -6,6 +6,13 @@ import withNuxt from './.nuxt/eslint.config.mjs'
 export default withNuxt(
   await antfu({
     name: 'laslog/antfu',
+    ignores: [
+      'pacts/**',
+      'coverage/**',
+      '.nuxt/**',
+      '.output/**',
+      'dist/**',
+    ],
     formatters: true,
     vue: true, // To enable accessibility in Vue, use the option {a11y: true}
     typescript: {
