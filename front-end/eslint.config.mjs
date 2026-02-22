@@ -20,7 +20,13 @@ export default withNuxt(
 
     typescript: {
       tsconfigPath: 'tsconfig.json',
-      // 🚨 删掉了引发冲突的 parserOptions 和 allowDefaultProject，不再走弯路！
+      parserOptions: {
+        projectService: {
+          // 🎯 核心修复：像狙击手一样，只允许 vitest 和 js 文件进入默认项目。
+          // 绝对不写 '*.ts'，这样就完美避开了和 nuxt.config.ts 的冲突！
+          allowDefaultProject: ['vitest.config.ts', '*.js'],
+        },
+      },
     },
 
     rules: {
@@ -35,7 +41,7 @@ export default withNuxt(
       'nuxt/prefer-import-meta': 'error',
     },
   },
-  // 👉 针对测试配置文件，关闭过于严格的布尔值类型校验
+  // 顺手关掉 vitest 配置的严格校验，防止它再报 null check 的错
   {
     files: ['vitest.config.ts'],
     rules: {
