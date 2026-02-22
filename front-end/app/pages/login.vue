@@ -87,6 +87,16 @@ $gradient-blue-purple-soft: linear-gradient(to right, #8295ff, #c97cfc);
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
+  :deep(.button_wrapper) {
+    position: relative;
+    background-image: linear-gradient(to right, #e0d1eb, #e2b8ff); /* ✅ 必需：遮挡内容区 */
+    border-radius: 8px;
+    z-index: 1;
+    cursor: pointer;
+    border: none;
+    margin-top: 1rem;
+    font-weight: 400;
+  }
 }
 
 .login_form h1 {
@@ -109,19 +119,6 @@ $gradient-blue-purple-soft: linear-gradient(to right, #8295ff, #c97cfc);
   height: 2px;
   transform: scaleY(0.5);
   background-image: $gradient-blue-purple-soft;
-}
-
-.login_form {
-  :deep(.button_wrapper) {
-    position: relative;
-    background-image: linear-gradient(to right, #e0d1eb, #e2b8ff); /* ✅ 必需：遮挡内容区 */
-    border-radius: 8px;
-    z-index: 1;
-    cursor: pointer;
-    border: none;
-    margin-top: 1rem;
-    font-weight: 400;
-  }
 }
 
 .active_account {
